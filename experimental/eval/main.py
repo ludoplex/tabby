@@ -17,10 +17,7 @@ import random
 def valid_item(item: processing.Item):
     count_body_lines = len(item.body.splitlines())
 
-    if count_body_lines > 10:
-        return False
-
-    return True
+    return count_body_lines <= 10
 
 
 def scorer(label, prediction):

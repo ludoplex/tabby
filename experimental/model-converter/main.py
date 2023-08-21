@@ -57,12 +57,11 @@ def generate_tabby_json(args):
         print("found tabby.json, skipping tabby.json generation")
         return
 
-    data = {}
-    data["auto_model"] = (
-        "AutoModelForCausalLM"
+    data = {
+        "auto_model": "AutoModelForCausalLM"
         if args.inference_mode == "causallm"
         else "AutoModelForSeq2SeqLM"
-    )
+    }
     if args.prompt_template:
         data["prompt_template"] = args.prompt_template
     with open("tabby.json", "w", encoding="utf-8") as f:
