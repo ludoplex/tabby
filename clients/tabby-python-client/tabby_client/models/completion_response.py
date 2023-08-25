@@ -30,7 +30,7 @@ class CompletionResponse:
             choices.append(choices_item)
 
         field_dict: Dict[str, Any] = {}
-        field_dict.update(self.additional_properties)
+        field_dict |= self.additional_properties
         field_dict.update(
             {
                 "id": id,

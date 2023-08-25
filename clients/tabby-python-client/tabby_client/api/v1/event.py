@@ -14,7 +14,7 @@ def _get_kwargs(
     client: Client,
     json_body: LogEventRequest,
 ) -> Dict[str, Any]:
-    url = "{}/v1/events".format(client.base_url)
+    url = f"{client.base_url}/v1/events"
 
     headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()

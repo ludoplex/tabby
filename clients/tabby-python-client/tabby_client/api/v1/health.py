@@ -13,7 +13,7 @@ def _get_kwargs(
     *,
     client: Client,
 ) -> Dict[str, Any]:
-    url = "{}/v1/health".format(client.base_url)
+    url = f"{client.base_url}/v1/health"
 
     headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
@@ -30,9 +30,7 @@ def _get_kwargs(
 
 def _parse_response(*, client: Client, response: httpx.Response) -> Optional[HealthState]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = HealthState.from_dict(response.json())
-
-        return response_200
+        return HealthState.from_dict(response.json())
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:

@@ -15,7 +15,7 @@ def _get_kwargs(
     client: Client,
     json_body: CompletionRequest,
 ) -> Dict[str, Any]:
-    url = "{}/v1/completions".format(client.base_url)
+    url = f"{client.base_url}/v1/completions"
 
     headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
@@ -35,12 +35,9 @@ def _get_kwargs(
 
 def _parse_response(*, client: Client, response: httpx.Response) -> Optional[Union[Any, CompletionResponse]]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = CompletionResponse.from_dict(response.json())
-
-        return response_200
+        return CompletionResponse.from_dict(response.json())
     if response.status_code == HTTPStatus.BAD_REQUEST:
-        response_400 = cast(Any, None)
-        return response_400
+        return cast(Any, None)
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
     else:
