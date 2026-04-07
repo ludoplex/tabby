@@ -1,0 +1,344 @@
+# Instincts generated from https://github.com/ludoplex/tabby
+# Generated: 2026-04-07T09:33:27.198Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: tabby-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ludoplex/tabby
+---
+
+# Tabby Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: chore
+
+## Evidence
+
+- 1 commits analyzed
+- Detected conventional commit pattern
+- Examples: chore(deps): bump the npm_and_yarn group across 2 directories with 28 updates
+
+---
+id: tabby-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ludoplex/tabby
+---
+
+# Tabby Commit Length
+
+## Action
+
+Write moderate-length commit messages (~77 characters)
+
+## Evidence
+
+- Average commit message length: 77 chars
+- Based on 1 commits
+
+---
+id: tabby-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ludoplex/tabby
+---
+
+# Tabby Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: tabby-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ludoplex/tabby
+---
+
+# Tabby Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: tabby-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ludoplex/tabby
+---
+
+# Tabby Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: tabby-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ludoplex/tabby
+---
+
+# Tabby Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: tabby-workflow-dependency-update-across-multiple-packages
+trigger: "when doing dependency update across multiple packages"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ludoplex/tabby
+---
+
+# Tabby Workflow Dependency Update Across Multiple Packages
+
+## Action
+
+Follow the dependency-update-across-multiple-packages workflow:
+1. Identify outdated dependencies in multiple package.json files.
+2. Update the version numbers in each relevant package.json.
+3. Regenerate or update corresponding yarn.lock files for each affected directory.
+4. Commit all changed package.json and yarn.lock files together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: */package.json, */yarn.lock, package.json
+
+---
+id: tabby-instinct-filename-camelcase
+trigger: "When creating a new TypeScript file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Filename Camelcase
+
+## Action
+
+Name the file using camelCase convention
+
+## Evidence
+
+- Pattern in namingConventions.files: camelCase
+
+---
+id: tabby-instinct-function-camelcase
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Function Camelcase
+
+## Action
+
+Name the function using camelCase convention
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: tabby-instinct-class-pascalcase
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Class Pascalcase
+
+## Action
+
+Name the class using PascalCase convention
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: tabby-instinct-constant-screaming-snake
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Constant Screaming Snake
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE convention
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: tabby-instinct-import-relative
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Import Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: tabby-instinct-export-named
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Export Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: tabby-instinct-test-separate-location
+trigger: "When adding or updating tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Test Separate Location
+
+## Action
+
+Place test files in a separate directory from source code
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation: separate
+
+---
+id: tabby-instinct-git-conventional-commits-chore
+trigger: "When committing dependency updates or maintenance tasks"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Git Conventional Commits Chore
+
+## Action
+
+Use the 'chore' prefix in the commit message following conventional commit format
+
+## Evidence
+
+- Pattern in commits.prefixes: chore
+- Example: chore(deps): bump the npm_and_yarn group across 2 directories with 28 updates
+
+---
+id: tabby-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 77 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 77
+
+---
+id: tabby-instinct-dependency-update-workflow
+trigger: "When dependencies need to be updated across multiple packages or directories"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: ludoplex/tabby
+---
+
+# Tabby Instinct Dependency Update Workflow
+
+## Action
+
+Identify outdated dependencies, update package.json and yarn.lock files in all affected directories, and commit all changes together
+
+## Evidence
+
+- Workflow: dependency-update-across-multiple-packages
+- Seen in commit: chore(deps): bump the npm_and_yarn group across 2 directories with 28 updates
+
